@@ -12,3 +12,5 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 GET /api/list-all					controllers.Api.list(version ?= null) 
 
 GET /api/defaultTree				controllers.Api.defaultTree()
+
+GET /youtube						controllers.Application.youtube()
