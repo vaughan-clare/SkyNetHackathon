@@ -27,7 +27,9 @@ public class Api extends Controller {
 	}
 
 	/* returns the default tree selections choices */
-	public static Result default(){
+	public static Result defaultTree(){
+
+		return ok("tree is coming");
 
 	}
 
