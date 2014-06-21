@@ -15,4 +15,8 @@ public class Application extends Controller {
     	return ok(youtube.render());
     }
 
+    public static Result googleplus(){
+    	return ok(googleplus.render());
+    }
+
 }
