@@ -42,7 +42,7 @@ function youtubeSearch(query) {
 		document.getElementById('block-con').appendChild(ref);
 	}
 
-	document.getElementById("path-container").appendChild('#block-con');
+	//document.getElementById("path-container").appendChild('#block-con');
 
 	});
 };
@@ -76,12 +76,24 @@ function searchplus(query) {
     key: 'AIzaSyAP31pN6HgLcFnPURUSkDFK23slAUkvYiI',
     maxResults: '5'
   });
-
   request.execute(function(response) {
-    var str = JSON.stringify(response.result);
-    $('#search-container-plus').html('<pre>' + str + '</pre>');
-  });
-}
+  	console.log(response.result.items[1]);
+	var plusResults = response.result;
+	for(var i = 0; i < plusResults.items.length; i++) {
+		var ref = document.createElement("a");
+		ref.className = thumbnail;
+		ref.setA
+		ref.setAttribute("href",response.result.items[i].url);
+		var thumbnail = document.createElement("img");
+		thumbnail.setAttribute("src",plusResults.items[i].url.image);
+		ref.appendChild(thumbnail);
+		document.getElementById('block-con').appendChild(ref);
+	}
+
+	//document.getElementById("path-container").appendChild('#block-con');
+	});
+
+	};
 
 
 function showResults(){
@@ -93,14 +105,16 @@ function showResults(){
 
 	//Google Results
 	var resource1 = document.createElement('li');
-	$(resource1).attr('id', 'coursera');
+	
 	var resource2 = document.createElement('li');
-	$(resource2).attr('id', 'udacity');
+	
 	var list = document.createElement('ul');
 	list.setAttribute('id', 'ext-res');
 	list.appendChild(resource1);
 	list.appendChild(resource2);
 	document.getElementById('block-con').appendChild(list);
+	$(resource2).attr('id', 'udacity');
+	$(resource1).attr('id', 'coursera');
 	googleSearch(queryString);
 
 	// Load the client interfaces for the YouTube Analytics and Data APIs, which
@@ -130,6 +144,7 @@ function showResults(){
     handleAPILoaded1();
   	});}
 
+  	loadAPIClientInterfaces2();
   	var plusResults = document.createElement("div");
 	$(plusResults).className = "search-container-yt";
 	$(plusResults).text('Plus results coming soon');
