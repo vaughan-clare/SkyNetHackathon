@@ -8,6 +8,10 @@ function changeTitle(newTitle) {
 	var s = document.getElementById('pageTitle').innerText = newTitle;
 };
 
+function buildQuery(queryString) {
+
+};
+
 function updatePage(pageName) {
 
 	var isFound = false;
@@ -32,7 +36,7 @@ function updatePage(pageName) {
 		var blockContainer = document.createElement("div");
 		blockContainer.className = "col-sm-4 portfolio-item";
 		if (pageView.opts[i].childPage) {
-			blockContainer.setAttribute('onclick',"updatePage('"+pageView.opts[i].childPage+"')");
+			blockContainer.setAttribute('onclick',"updatePage('"+pageView.opts[i].childPage+"');");
 		} else {
 			blockContainer.setAttribute('onclick',"updatePage('"+pageView.opts[i].title+"')");
 		}
