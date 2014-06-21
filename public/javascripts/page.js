@@ -17,18 +17,114 @@ function clearPage() {
 	while (optsRow.firstChild) {
 	    optsRow.removeChild(optsRow.firstChild);
 	}
+};
+
+// Search youtube for a specified string.
+function youtubeSearch(query) {
+  var q = query;
+  var request = gapi.client.youtube.search.list({
+    q: q,
+    part: 'snippet',
+    key: 'AIzaSyAP31pN6HgLcFnPURUSkDFK23slAUkvYiI',
+    maxResults: '10',
+    order: 'date'
+  });
+
+  request.execute(function(response) {
+    var str = JSON.stringify(response.result);
+    $('.search-container-yt').html('<pre>' + str + '</pre>');
+  });}
+
+//Build a Search String for third party sites such as coursera, udacity, mit, etc...
+function googleSearch(query){
+  // var query = "mobile+development"
+  var site1 = 'http%3A%2F%2Fwww.coursera.org%2F';
+  var resource1 = 'coursera';
+  var site2 = 'https%3A%2F%2Fwww.udacity.com%2F';
+  var resource2 = 'udacity';
+
+  // example - https://www.google.com/search?as_q=Mobile+development+beginner+java&as_sitesearch=http%3A%2F%2Fwww.coursera.org%2F
+  var glink = 'https://www.google.com/search?as_q=' + query;
+  var link1 = glink + '&as_sitesearch='+ site1;
+  var link2 = glink + '&as_sitesearch='+ site2;
+
+  //update page
+  //document.getElementById(resource1).setAttribute('href', link1);
+  document.getElementById(resource1).innerHTML = "<a href="+link1+">Coursera Resources</a>";
+  document.getElementById(resource2).innerHTML = "<a href="+link2+">Udacity Resources</a>";
+  // document.getElementById(resource2).href = link2;
+  // document.getElementById(resource2).innerHTML = "Udacity Resources";
+};
+
+  // Search for a specified string.
+function searchplus(query) {
+  var q = query //$('#query').val();
+  var request = gapi.client.plus.activities.search({
+    query: q,
+    key: 'AIzaSyAP31pN6HgLcFnPURUSkDFK23slAUkvYiI',
+    maxResults: '5'
+  });
+
+  request.execute(function(response) {
+    var str = JSON.stringify(response.result);
+    $('#search-container-plus').html('<pre>' + str + '</pre>');
+  });
 }
 
-function showResults(query){
+
+
+function showResults(){
 	var optsRow= document.getElementById("options-row");
 	var blockContainer = document.createElement("div");
-	blockContainer.className = "col-sm-4 portfolio-item";
+	$(blockContainer).attr('id', 'block-con')
+	document.getElementById("options-row").appendChild(blockContainer);
 	changeTitle('Results');
-	youtubeSearch(query);
-	searchplus(query);
-	googlesearch(query);
 
+	//Google Results
+	var resource1 = document.createElement('li');
+	$(resource1).attr('id', 'coursera');
+	var resource2 = document.createElement('li');
+	$(resource2).attr('id', 'udacity');
+	var list = document.createElement('ul');
+	list.setAttribute('id', 'ext-res');
+	list.appendChild(resource1);
+	list.appendChild(resource2);
+	document.getElementById('block-con').appendChild(list);
+	googleSearch(queryString);
 
+	// Load the client interfaces for the YouTube Analytics and Data APIs, which
+	// are required to use the Google APIs JS client. More info is available at
+	// http://code.google.com/p/google-api-javascript-client/wiki/GettingStarted#Loading_the_Client
+	function loadAPIClientInterfaces() {
+  		gapi.client.load('youtube', 'v3', function() {
+    	handleAPILoaded();
+  	})};
+	
+	//YouTube
+	var youtubeSearchResults = document.createElement("div");
+	$(youtubeSearchResults).className = "search-container-yt";
+	$(youtubeSearchResults).text('YouTube Results Coming soon');
+	document.getElementById('block-con').appendChild(youtubeSearchResults);
+	// After the API loads, call a function to enable the search box.
+	function handleAPILoaded() {
+		youtubeSearch(queryString);
+	
+	};
+	
+	//Google+	
+	function loadAPIClientInterfaces2() {
+  	gapi.client.load('plus', 'v1', function() {
+    handleAPILoaded1();
+  	});}
+
+  	var plusResults = document.createElement("div");
+	$(plusResults).className = "search-container-yt";
+	$(plusResults).text('Plus results coming soon');
+	document.getElementById('block-con').appendChild(plusResults);
+	function handleAPILoaded1() {
+		searchplus(queryString);
+	};
+	
 }
 
 function updatePage(pageName) {
@@ -41,7 +137,7 @@ function updatePage(pageName) {
 	}
 	if(isFound == false) {
 		clearPage();
-		showResults(queryString);
+		showResults();
 	} else {
 		buildQuery(pageView.title);
 		changeTitle(pageView.title);
