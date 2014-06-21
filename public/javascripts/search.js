@@ -21,7 +21,7 @@ function youtubeSearch(query) {
 }
 
   // Search plus  for a specified string.
-function searchplus(query) {
+function searchplus(query){
   var q = query //$('#query').val();
   var request = gapi.client.plus.activities.search({
     query: q,
