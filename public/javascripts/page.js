@@ -15,6 +15,20 @@ var developmentPage = {
 	]
 };
 
+var introPage = {
+	title:"Intro to CS",
+	opts: [
+		{title: 'Algorithms', desc: ''},
+		{title: 'Data Structures', desc: ''}
+	]
+}
+
+var sectorsPage = {
+	title:"Sectors",
+	opts: [
+	]
+}
+
 var blockColors= ['#3276b1','#d2850b','#47a447','#d2322d'];
 
 var pageView = startPage;
@@ -34,6 +48,13 @@ function changeTitle(newTitle) {
 };
 
 function updatePage(pageName) {
-	changeTitle(pageName.title);
-	document.createElement("H3");
+	if(pageName === 'development') {
+		pageView = developmentPage;
+	} else if (pageName === 'intro') {
+		pageView = introPage;
+	} else if (pageName === 'sectors') {
+		pageView = sectorsPage;
+	}
+	changeTitle(pageView.title);
+	//document.createElement("H3")...
 };

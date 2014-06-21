@@ -20,3 +20,6 @@ function search() {
     $('#search-container').html('<pre>' + str + '</pre>');
   });
 }
+
+
+/* Use this string to construct link: https://www.youtube.com/watch?v=48HPKLZ5b2w" Funny Cat Videos Ever 2014 Funny Cat Videos 2014 Funny ...","thumbnails":{"default":{"url":"https://i.ytimg.com/vi/48HPKLZ5b2w/default.jpg"},"medium":{"url":"https://i.ytimg.com/vi/48HPKLZ5b2w/mqdefault.jpg"},"high":{"url":"https://i.ytimg.com/vi/48HPKLZ5b2w/hqdefault.jpg"}} */

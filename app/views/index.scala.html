@@ -55,21 +55,6 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <!-- <img class="img-responsive" src="img/profile.png" alt=""> -->
-                    <div class="intro-text">
-                        <span class="name"></span>
-                        <hr class="star-light">
-                        <span class="skills"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
 <!-- OPTION BUTTONS -->
     <section id="yourpath">
         <div class="container">
@@ -81,7 +66,7 @@
             </div>
             <div class="row"  id="options-row">
                 <div class="col-sm-4 portfolio-item">
-                    <a href="#developmentModal" class="portfolio-link" data-toggle="modal" onclick="changeTitle('Development')">
+                    <a href="#developmentModal" class="portfolio-link" data-toggle="modal" onclick="updatePage('development')">
                         <div class="jumbotron" style="background-color:#d2850b;color:#FFFFFF;width:400px;height:400px">
                             <h3>Development</h3>
                             <p>Are you interested in creating applications?</p>
@@ -90,7 +75,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="#introModal" class="portfolio-link" data-toggle="modal" onclick="changeTitle('Intro to CS')">
+                    <a href="#introModal" class="portfolio-link" data-toggle="modal" onclick="updatePage('intro')">
                         <div class="jumbotron" style="background-color:#47a447;color:#FFFFFF;width:400px;height:400px">
                             <h3>Intro to CS</h3>
                             <p>Are you new to CS?</p>
@@ -98,7 +83,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="#sectorsModal" class="portfolio-link" data-toggle="modal" onclick="changeTitle('Sectors')">
+                    <a href="#sectorsModal" class="portfolio-link" data-toggle="modal" onclick="updatePage('sectors')">
                         <div class="jumbotron" style="background-color:#d2322d;color:#FFFFFF;width:400px;height:400px">
                             <h3>Sectors</h3>
                             <p>Are you interested in learning about the real-life applications of CS?</p>
