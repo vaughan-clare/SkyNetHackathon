@@ -55,9 +55,9 @@ var levelPage = {
 	queryString: "level",
 	endPage: true,
 	opts: [
-		{title: 'Beginner', desc:'Are you just starting out with this language?'},
-		{title: 'Intermediate', desc:'Have you used this language a little?'},
-		{title: 'Advanced', desc:'Are you highly familiar with this language?'}
+		{title: 'Beginner', desc:'Are you just starting out with this language?', queryString: "beginner"},
+		{title: 'Intermediate', desc:'Have you used this language a little?', queryString: "intermediate"},
+		{title: 'Advanced', desc:'Are you highly familiar with this language?', queryString: "advanced"}
 	]
 }
 

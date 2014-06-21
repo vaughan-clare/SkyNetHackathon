@@ -23,13 +23,20 @@ function showResults(query){
 	var optsRow= document.getElementById("options-row");
 	var blockContainer = document.createElement("div");
 	blockContainer.className = "col-sm-4 portfolio-item";
-	document.getElementById("path-container").appendChild(blockContainer);
 	changeTitle('Results');
-	youtubeSearch(query);
-	var youtubeElems = document.createElement
+	var youtubeResults = youtubeSearch(query);
+	for(var i = 0; i < youtubeResults.items.length; i++) {
+		var ref = document.createElement("a");
+		ref.className = thumbnail;
+		ref.setAttribute("href","www.youtube.com/watch?v="+items[i].is.videoId);
+		var thumbnail = document.createElement("img");
+		thumbnail.setAttribute("src",youtubeResults.items[i].snippet.thumbnails.default.url);
+		ref.appendChild(thumbnail);
+		blockContainer.appendChild(ref);
+	}
 	searchplus(query);
 	googlesearch(query);
-	//document.getElementById("path-container").appendChild(blockContainer);
+	document.getElementById("path-container").appendChild(blockContainer);
 
 };
 
