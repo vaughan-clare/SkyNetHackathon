@@ -77,8 +77,8 @@ function searchplus(query) {
     maxResults: '5'
   });
   request.execute(function(response) {
-  	console.log(response.result.items[1]);
-	var plusResults = response.result;
+  console.log(response.result.items[1]);
+  var plusResults = response.result;
 	for(var i = 0; i < plusResults.items.length; i++) {
 		var ref = document.createElement("a");
 		ref.className = thumbnail;
@@ -93,7 +93,8 @@ function searchplus(query) {
 	//document.getElementById("path-container").appendChild('#block-con');
 	});
 
-	};
+};
+
 
 
 function showResults(){
@@ -103,11 +104,16 @@ function showResults(){
 	document.getElementById("options-row").appendChild(blockContainer);
 	changeTitle('Results');
 
+	var googleResTitle = document.createElement("h2");
+	googleResTitle.innerText = "Suggested Resources";
+	document.getElementById('block-con').appendChild(googleResTitle);
+
 	//Google Results
-	var resource1 = document.createElement('li');
-	
-	var resource2 = document.createElement('li');
-	
+
+	var resource1 = document.createElement('h3');
+	$(resource1).attr('id', 'coursera');
+	var resource2 = document.createElement('h3');
+	$(resource2).attr('id', 'udacity');
 	var list = document.createElement('ul');
 	list.setAttribute('id', 'ext-res');
 	list.appendChild(resource1);
@@ -122,27 +128,31 @@ function showResults(){
 	// http://code.google.com/p/google-api-javascript-client/wiki/GettingStarted#Loading_the_Client
 	function loadAPIClientInterfaces() {
   		gapi.client.load('youtube', 'v3', function() {
-    	handleAPILoaded();
-  	})};
+    		handleAPILoaded();
+  		});
+  	};
 
-  		loadAPIClientInterfaces();
+  	loadAPIClientInterfaces();
 	
 	//YouTube
+	var youtubeResTitle = document.createElement("h2");
+	youtubeResTitle.innerText = "Related Videos";
+	document.getElementById('block-con').appendChild(youtubeResTitle);
+
 	var youtubeSearchResults = document.createElement("div");
 	$(youtubeSearchResults).className = "search-container-yt";
-	$(youtubeSearchResults).text('YouTube Results Coming soon');
 	document.getElementById('block-con').appendChild(youtubeSearchResults);
 	// After the API loads, call a function to enable 
 	function handleAPILoaded() {
 		youtubeSearch(queryString);
-	
 	};
 	
 	//Google+	
 	function loadAPIClientInterfaces2() {
-  	gapi.client.load('plus', 'v1', function() {
-    handleAPILoaded1();
-  	});}
+	  	gapi.client.load('plus', 'v1', function() {
+	    	handleAPILoaded1();
+  		});
+	};
 
   	loadAPIClientInterfaces2();
   	var plusResults = document.createElement("div");
@@ -153,7 +163,7 @@ function showResults(){
 		searchplus(queryString);
 	};
 	
-}
+};
 
 function updatePage(pageName) {
 	var isFound = false;
