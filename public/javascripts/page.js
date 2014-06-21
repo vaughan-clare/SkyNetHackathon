@@ -21,7 +21,6 @@ function updatePage(pageName) {
 		}
 	}
 
-	queryString = pageView.queryString + "+"+queryString;
 	changeTitle(pageView.title);
 	//remove children of options-row
 	var optsRow= document.getElementById("options-row");
@@ -32,21 +31,21 @@ function updatePage(pageName) {
 	for(var i = 0; i < pageView.opts.length; i++) {
 		var blockContainer = document.createElement("div");
 		blockContainer.className = "col-sm-4 portfolio-item";
-		blockContainer.setAttribute('onclick',"updatePage('"+pageView.opts[i].title+"')");
+		if (pageView.opts[i].childPage) {
+			blockContainer.setAttribute('onclick',"updatePage('"+pageView.opts[i].childPage+"')");
+		} else {
+			blockContainer.setAttribute('onclick',"updatePage('"+pageView.opts[i].title+"')");
+		}
 
 		var modalLink = document.createElement("a");
 		modalLink.className = "portfolio-link";
-		//modalLink.setAttribute('href',"href='#developmentModal'");
-		//modalLink.setAttribute('href',pageView.href);
-		//TODO: change href to better modal
-		//modalLink.setAttribute('onclick',"updatePage('"+pageView.opts[i].title+"')");
 
 		var jumboBlock = document.createElement("div");
 		jumboBlock.className = "jumbotron";
 		jumboBlock.style.backgroundColor = blockColors[i];
 		jumboBlock.style.color = "#FFFFFF";
-		jumboBlock.style.width = "400px";
-		jumboBlock.style.height = "400px";
+		jumboBlock.style.width = "350px";
+		jumboBlock.style.height = "350px";
 
 		var blockTitle = document.createElement("h3");
 		var titleText = document.createTextNode(pageView.opts[i].title);
