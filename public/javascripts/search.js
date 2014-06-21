@@ -21,6 +21,28 @@ function search() {
   });
 }
 
+* Store the proper data to tracks and artists list 
+*/
+void onDataLoaded(responseText)
+{
+  JsonObject data = new JsonObject.fromJsonString(responseText);
+  print(data.length);
+  data = data.toptracks;
+  
+  for (var x = 0; x < data.track.length; x++)
+  {
+    //print("Track Name: "+ data.track[x].name.toString());
+    String track = data.track[x].name.toString().trim();
+    //print("Artist: "+data.track[x].artist.name.toString());
+    String artist = data.track[x].artist.name.toString().trim(); 
+    Track_Obj current = new Track_Obj(); 
+    current.Artist = artist;
+    current.Track = track; 
+    //Add the Current Track to the List
+    tracks_list.add(current); 
+  }
+  
+
 
 //Build a Search String for third party sites such as coursera, udacity, mit, etc...
 
