@@ -79,14 +79,12 @@ function searchplus(query) {
   request.execute(function(response) {
   console.log(response.result.items[1]);
   var plusResults = response.result;
+  var list = document.createElement("ul");
 	for(var i = 0; i < plusResults.items.length; i++) {
-		var ref = document.createElement("a");
-		ref.className = thumbnail;
-		ref.setA
-		ref.setAttribute("href",response.result.items[i].url);
-		var thumbnail = document.createElement("img");
-		thumbnail.setAttribute("src",plusResults.items[i].url.image);
-		ref.appendChild(thumbnail);
+		var ref = document.createElement("li");
+		var anchor = document.createElement('a');
+		anchor.setAttribute("href",response.result.items[i].url);
+		ref.appendChild(anchor);
 		document.getElementById('block-con').appendChild(ref);
 	}
 
