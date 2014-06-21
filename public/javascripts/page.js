@@ -19,8 +19,15 @@ function clearPage() {
 	}
 }
 
-function updatePage(pageName) {
+function showResults(query){
+	searchplus(query);
+	youtubeSearch(query);
+	googlesearch(query);
 
+
+}
+
+function updatePage(pageName) {
 	var isFound = false;
 	for(var i = 0; !isFound && i < pageArray.length; i++) {
 		if (pageArray[i].title == pageName){
@@ -28,9 +35,9 @@ function updatePage(pageName) {
 			isFound = true;
 		}
 	}
-
 	if(isFound == false) {
 		clearPage();
+		showResults(queryString);
 	} else {
 		buildQuery(pageView.title);
 		changeTitle(pageView.title);
