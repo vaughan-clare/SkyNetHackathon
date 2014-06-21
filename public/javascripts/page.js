@@ -10,6 +10,7 @@ function changeTitle(newTitle) {
 
 function buildQuery(queryKey) {
 	queryString = queryKey + '+' + queryString;
+	console.log(queryString);
 };
 
 function clearPage() {
