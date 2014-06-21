@@ -30,16 +30,16 @@ function youtubeSearch(query) {
     order: 'date'
   	});
   	request.execute(function(response) {
-    str = JSON.stringify(response.result);
-	var youtubeResults = str;
+  	//console.log(response.result.items[1]);
+	var youtubeResults = response.result;
 	for(var i = 0; i < youtubeResults.items.length; i++) {
 		var ref = document.createElement("a");
 		ref.className = thumbnail;
-		ref.setAttribute("href","www.youtube.com/watch?v="+items[i].is.videoId);
+		ref.setAttribute("href","www.youtube.com/watch?v="+response.result.items[i].id.videoId);
 		var thumbnail = document.createElement("img");
 		thumbnail.setAttribute("src",youtubeResults.items[i].snippet.thumbnails.default.url);
 		ref.appendChild(thumbnail);
-		$('#block-con').appendChild(ref);
+		document.getElementById('block-con').appendChild(ref);
 	}
 
 	document.getElementById("path-container").appendChild('#block-con');
@@ -110,13 +110,15 @@ function showResults(){
   		gapi.client.load('youtube', 'v3', function() {
     	handleAPILoaded();
   	})};
+
+  		loadAPIClientInterfaces();
 	
 	//YouTube
 	var youtubeSearchResults = document.createElement("div");
 	$(youtubeSearchResults).className = "search-container-yt";
 	$(youtubeSearchResults).text('YouTube Results Coming soon');
 	document.getElementById('block-con').appendChild(youtubeSearchResults);
-	// After the API loads, call a function to enable the search box.
+	// After the API loads, call a function to enable 
 	function handleAPILoaded() {
 		youtubeSearch(queryString);
 	
