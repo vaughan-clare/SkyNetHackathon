@@ -17,19 +17,21 @@ function clearPage() {
 	while (optsRow.firstChild) {
 	    optsRow.removeChild(optsRow.firstChild);
 	}
-}
+};
 
 function showResults(query){
 	var optsRow= document.getElementById("options-row");
 	var blockContainer = document.createElement("div");
 	blockContainer.className = "col-sm-4 portfolio-item";
+	document.getElementById("path-container").appendChild(blockContainer);
 	changeTitle('Results');
 	youtubeSearch(query);
+	var youtubeElems = document.createElement
 	searchplus(query);
 	googlesearch(query);
+	//document.getElementById("path-container").appendChild(blockContainer);
 
-
-}
+};
 
 function updatePage(pageName) {
 	var isFound = false;
