@@ -81,7 +81,7 @@ function searchplus(query) {
     var str = JSON.stringify(response.result);
     $('#search-container-plus').html('<pre>' + str + '</pre>');
   });
-}
+};
 
 
 function showResults(){
@@ -91,10 +91,14 @@ function showResults(){
 	document.getElementById("options-row").appendChild(blockContainer);
 	changeTitle('Results');
 
+	var googleResTitle = document.createElement("h2");
+	googleResTitle.innerText = "Suggested Resources";
+	document.getElementById('block-con').appendChild(googleResTitle);
+
 	//Google Results
-	var resource1 = document.createElement('li');
+	var resource1 = document.createElement('h3');
 	$(resource1).attr('id', 'coursera');
-	var resource2 = document.createElement('li');
+	var resource2 = document.createElement('h3');
 	$(resource2).attr('id', 'udacity');
 	var list = document.createElement('ul');
 	list.setAttribute('id', 'ext-res');
@@ -108,27 +112,31 @@ function showResults(){
 	// http://code.google.com/p/google-api-javascript-client/wiki/GettingStarted#Loading_the_Client
 	function loadAPIClientInterfaces() {
   		gapi.client.load('youtube', 'v3', function() {
-    	handleAPILoaded();
-  	})};
+    		handleAPILoaded();
+  		});
+  	};
 
-  		loadAPIClientInterfaces();
+  	loadAPIClientInterfaces();
 	
 	//YouTube
+	var youtubeResTitle = document.createElement("h2");
+	youtubeResTitle.innerText = "Related Videos";
+	document.getElementById('block-con').appendChild(youtubeResTitle);
+
 	var youtubeSearchResults = document.createElement("div");
 	$(youtubeSearchResults).className = "search-container-yt";
-	$(youtubeSearchResults).text('YouTube Results Coming soon');
 	document.getElementById('block-con').appendChild(youtubeSearchResults);
 	// After the API loads, call a function to enable 
 	function handleAPILoaded() {
 		youtubeSearch(queryString);
-	
 	};
 	
 	//Google+	
 	function loadAPIClientInterfaces2() {
-  	gapi.client.load('plus', 'v1', function() {
-    handleAPILoaded1();
-  	});}
+	  	gapi.client.load('plus', 'v1', function() {
+	    	handleAPILoaded1();
+  		});
+	};
 
   	var plusResults = document.createElement("div");
 	$(plusResults).className = "search-container-yt";
@@ -138,7 +146,7 @@ function showResults(){
 		searchplus(queryString);
 	};
 	
-}
+};
 
 function updatePage(pageName) {
 	var isFound = false;
