@@ -22,4 +22,17 @@ function search() {
 }
 
 
+//Build a Search String for third party sites such as coursera, udacity, mit, etc...
+
+function googleSearch(query, site){
+  // var query = "mobile+development"
+  // var site = 'http%3A%2F%2Fwww.coursera.org%2F'
+  // example - https://www.google.com/search?as_q=Mobile+development+beginner+java&as_sitesearch=http%3A%2F%2Fwww.coursera.org%2F
+  var link = 'https://www.google.com/search?as_q=';
+  link = link + query + '&as_sitesearch='+ site;
+  // link.concat('&as_sitesearch=');
+  // link.concat(site);
+  $('href='+link).appendTo(".google-search");
+}
+
 /* Use this string to construct link: https://www.youtube.com/watch?v=48HPKLZ5b2w" Funny Cat Videos Ever 2014 Funny Cat Videos 2014 Funny ...","thumbnails":{"default":{"url":"https://i.ytimg.com/vi/48HPKLZ5b2w/default.jpg"},"medium":{"url":"https://i.ytimg.com/vi/48HPKLZ5b2w/mqdefault.jpg"},"high":{"url":"https://i.ytimg.com/vi/48HPKLZ5b2w/hqdefault.jpg"}} */
