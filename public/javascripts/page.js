@@ -52,7 +52,7 @@ function updatePage(pageName) {
 		clearPage();
 		showResults(queryString);
 	} else {
-		buildQuery(pageView.title);
+		buildQuery(pageView.queryString);
 		changeTitle(pageView.title);
 		//remove children of options-row
 		clearPage();
