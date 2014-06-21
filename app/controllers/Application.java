@@ -19,4 +19,8 @@ public class Application extends Controller {
     	return ok(googleplus.render());
     }
 
+    public static Result createpath(){
+    	return ok(createpath.render());
+    }
+
 }
