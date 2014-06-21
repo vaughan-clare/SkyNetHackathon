@@ -17,7 +17,7 @@ var developmentPage = {
 };
 var introPage = {
 	title:"Intro to CS",
-	queryString: 'beginner cs',
+	queryString: 'beginner+cs',
 	opts: [
 		{title: 'Algorithms', desc: 'Are you interested in problem-solving?'},
 		{title: 'Data Structures', desc: 'Are you interested in how data is organized?'}
@@ -25,13 +25,13 @@ var introPage = {
 }
 var sectorsPage = {
 	title:"Sectors",
-	queryString: "'computer science' careers finance automotive energy entertainment medical security",
+	queryString: "'computer+science'+careers+finance+automotive+energy+entertainment+medical+security",
 	opts: [
 	]
 }
 var mobileLanguagesPage = {
 	title:"Mobile",
-	queryString: "computer language",
+	queryString: "computer+language",
 	opts: [
 		{title: 'PHP', desc:'Are you new to app software development?', childPage: 'Level', queryString: "php"},
 		{title: 'Java', desc:'Do you want to use a language for more than app development?', childPage: 'Level', queryString: "java"},
