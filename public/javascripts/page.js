@@ -13,7 +13,7 @@ function buildQuery(queryKey) {
 };
 
 function clearPage() {
-	var optsRow= document.getElementById("path-container");
+	var optsRow= document.getElementById("options-row");
 	while (optsRow.firstChild) {
 	    optsRow.removeChild(optsRow.firstChild);
 	}
@@ -42,10 +42,7 @@ function updatePage(pageName) {
 		buildQuery(pageView.title);
 		changeTitle(pageView.title);
 		//remove children of options-row
-		var optsRow= document.getElementById("options-row");
-		while (optsRow.firstChild) {
-		    optsRow.removeChild(optsRow.firstChild);
-		}
+		clearPage();
 		//add children for new page
 		for(var i = 0; i < pageView.opts.length; i++) {
 			var blockContainer = document.createElement("div");
