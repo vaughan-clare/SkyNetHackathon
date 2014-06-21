@@ -28,12 +28,24 @@ function youtubeSearch(query) {
     key: 'AIzaSyAP31pN6HgLcFnPURUSkDFK23slAUkvYiI',
     maxResults: '10',
     order: 'date'
-  });
+  	});
+  	request.execute(function(response) {
+    str = JSON.stringify(response.result);
+	var youtubeResults = str;
+	for(var i = 0; i < youtubeResults.items.length; i++) {
+		var ref = document.createElement("a");
+		ref.className = thumbnail;
+		ref.setAttribute("href","www.youtube.com/watch?v="+items[i].is.videoId);
+		var thumbnail = document.createElement("img");
+		thumbnail.setAttribute("src",youtubeResults.items[i].snippet.thumbnails.default.url);
+		ref.appendChild(thumbnail);
+		$('#block-con').appendChild(ref);
+	}
 
-  request.execute(function(response) {
-    var str = JSON.stringify(response.result);
-    $('.search-container-yt').html('<pre>' + str + '</pre>');
-  });}
+	document.getElementById("path-container").appendChild('#block-con');
+
+	});
+};
 
 //Build a Search String for third party sites such as coursera, udacity, mit, etc...
 function googleSearch(query){
@@ -70,7 +82,6 @@ function searchplus(query) {
     $('#search-container-plus').html('<pre>' + str + '</pre>');
   });
 }
-
 
 
 function showResults(){
@@ -139,7 +150,7 @@ function updatePage(pageName) {
 		clearPage();
 		showResults();
 	} else {
-		buildQuery(pageView.title);
+		buildQuery(pageView.queryString);
 		changeTitle(pageView.title);
 		//remove children of options-row
 		clearPage();
