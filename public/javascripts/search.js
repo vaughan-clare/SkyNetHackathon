@@ -1,7 +1,4 @@
-// After the API loads, call a function to enable the search box.
-function handleAPILoaded() {
-  $('#search-button').attr('disabled', false);
-}
+
 // Search youtube for a specified string.
 function youtubeSearch(query) {
   var q = query

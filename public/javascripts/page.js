@@ -20,8 +20,12 @@ function clearPage() {
 }
 
 function showResults(query){
-	searchplus(query);
+	var optsRow= document.getElementById("options-row");
+	var blockContainer = document.createElement("div");
+	blockContainer.className = "col-sm-4 portfolio-item";
+	changeTitle('Results');
 	youtubeSearch(query);
+	searchplus(query);
 	googlesearch(query);
 
 
