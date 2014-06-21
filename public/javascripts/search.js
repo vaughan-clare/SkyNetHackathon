@@ -9,7 +9,9 @@ function search() {
   var request = gapi.client.youtube.search.list({
     q: q,
     part: 'snippet',
-    key: 'AIzaSyAP31pN6HgLcFnPURUSkDFK23slAUkvYiI'
+    key: 'AIzaSyAP31pN6HgLcFnPURUSkDFK23slAUkvYiI',
+    maxResults: '10',
+    order: 'date'
 
   });
 
