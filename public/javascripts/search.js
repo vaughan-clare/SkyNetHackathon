@@ -2,10 +2,9 @@
 function handleAPILoaded() {
   $('#search-button').attr('disabled', false);
 }
-
-// Search for a specified string.
-function youtubeSearch() {
-  var q = $('#query').val();
+// Search youtube for a specified string.
+function youtubeSearch(query) {
+  var q = query
   var request = gapi.client.youtube.search.list({
     q: q,
     part: 'snippet',
@@ -17,9 +16,23 @@ function youtubeSearch() {
 
   request.execute(function(response) {
     var str = JSON.stringify(response.result);
-    $('#search-container').html('<pre>' + str + '</pre>');
+    $('#search-container-yt').html('<pre>' + str + '</pre>');
   });
 }
+
+  // Search plus  for a specified string.
+function searchplus(query) {
+  var q = query //$('#query').val();
+  var request = gapi.client.plus.activities.search({
+    query: q,
+    key: 'AIzaSyAP31pN6HgLcFnPURUSkDFK23slAUkvYiI',
+    maxResults: '5'
+  });
+
+  request.execute(function(response) {
+    var str = JSON.stringify(response.result);
+    $('#search-container-plus').html('<pre>' + str + '</pre>');
+  })
 
 //Build a Search String for third party sites such as coursera, udacity, mit, etc...
 function googleSearch(query){
