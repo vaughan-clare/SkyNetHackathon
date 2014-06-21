@@ -78,6 +78,9 @@ function searchplus(query) {
     maxResults: '5'
   });
   request.execute(function(response) {
+  	var plusResTitle = document.createElement("h2");
+	plusResTitle.innerText = "Related Community Resources";
+	document.getElementById('block-con').appendChild(plusResTitle);
   console.log(response.result.items[1]);
   var plusResults = response.result;
   var list = document.createElement("ul");
@@ -90,8 +93,6 @@ function searchplus(query) {
 		list.appendChild(ref);
 	}
 	document.getElementById('block-con').appendChild(list);
-
-	//document.getElementById("path-container").appendChild('#block-con');
 	});
 
 };
@@ -156,10 +157,8 @@ function showResults(){
 	};
 
   	loadAPIClientInterfaces2();
-  	var plusResults = document.createElement("div");
-	$(plusResults).className = "search-container-yt";
-	$(plusResults).text('Plus results coming soon');
-	document.getElementById('block-con').appendChild(plusResults);
+  	
+	// document.getElementById('block-con').appendChild(plusResults);
 	function handleAPILoaded1() {
 		searchplus(queryString);
 	};
