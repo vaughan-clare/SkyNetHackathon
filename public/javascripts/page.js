@@ -12,6 +12,13 @@ function buildQuery(queryString) {
 
 };
 
+
+function showResults(query){
+	searchplus(query)
+
+
+};
+
 function updatePage(pageName) {
 
 	var isFound = false;
@@ -31,6 +38,7 @@ function updatePage(pageName) {
 	while (optsRow.firstChild) {
 	    optsRow.removeChild(optsRow.firstChild);
 	}
+	
 	//add children for new page
 	for(var i = 0; i < pageView.opts.length; i++) {
 		var blockContainer = document.createElement("div");
