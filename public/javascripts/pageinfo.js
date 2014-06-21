@@ -53,6 +53,7 @@ var webLanguagesPage = {
 var levelPage = {
 	title: "Level",
 	queryString: "level",
+	endPage: true,
 	opts: [
 		{title: 'Beginner', desc:'Are you just starting out with this language?'},
 		{title: 'Intermediate', desc:'Have you used this language a little?'},
