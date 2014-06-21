@@ -87,6 +87,7 @@ function searchplus(query) {
 		anchor.setAttribute("href",response.result.items[i].url);
 		ref.appendChild(anchor);
 		document.getElementById('block-con').appendChild(ref);
+		list.appendChild(ref);
 	}
 
 	//document.getElementById("path-container").appendChild('#block-con');
