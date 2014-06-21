@@ -9,14 +9,16 @@ var startPage = {
 
 var developmentPage = {
 	title:"Development",
+	queryString: 'development',
 	opts: [
-		{title: 'Mobile', desc: 'Are you interested in developing mobile apps?'},
-		{title: 'Web Apps', desc: 'Are you interested in developing apps for the web?'}
+		{title: 'Mobile', desc: 'Are you interested in developing mobile apps?', queryString: 'mobile'},
+		{title: 'Web Apps', desc: 'Are you interested in developing apps for the web?', queryString: 'web application'}
 	]
 };
 
 var introPage = {
 	title:"Intro to CS",
+	queryString: 'beginner cs',
 	opts: [
 		{title: 'Algorithms', desc: ''},
 		{title: 'Data Structures', desc: ''}
@@ -25,6 +27,7 @@ var introPage = {
 
 var sectorsPage = {
 	title:"Sectors",
+	queryString: "'computer science' careers finance automotive energy entertainment medical security",
 	opts: [
 	]
 }
@@ -33,17 +36,7 @@ var blockColors= ['#3276b1','#d2850b','#47a447','#d2322d'];
 
 var pageView = startPage;
 
-var queryArray = [];
-
-function toggleVisibility(divid) {
-    if (divid="development"){
-        document.getElementById("development").style.visibility = "visible";
-    } else if (divid="intro") {
-        document.getElementById("intro").style.visibility = "visible";
-    } else if (divid="sectors") {
-        document.getElementById("sectors").style.visibility = "visible";
-    }
-};
+var queryString = "";
 
 function changeTitle(newTitle) {
 	var s = document.getElementById('pageTitle').innerText = newTitle;
@@ -57,6 +50,7 @@ function updatePage(pageName) {
 	} else if (pageName === 'sectors') {
 		pageView = sectorsPage;
 	}
+	queryString = pageView.queryString + " "+queryString;
 	changeTitle(pageView.title);
 	//remove children of options-row
 	var optsRow= document.getElementById("options-row");
@@ -106,5 +100,6 @@ function updatePage(pageName) {
 		document.getElementById("options-row").appendChild(blockContainer);
 	}
 
+	console.log(queryString);
 	//document.createElement("H3")...
 };
