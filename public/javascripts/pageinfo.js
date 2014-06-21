@@ -19,8 +19,8 @@ var introPage = {
 	title:"Intro to CS",
 	queryString: 'beginner cs',
 	opts: [
-		{title: 'Algorithms', desc: ''},
-		{title: 'Data Structures', desc: ''}
+		{title: 'Algorithms', desc: 'Are you interested in problem-solving?'},
+		{title: 'Data Structures', desc: 'Are you interested in how data is organized?'}
 	]
 }
 var sectorsPage = {
