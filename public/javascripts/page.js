@@ -1,38 +1,4 @@
-var startPage = {
-	title: "Choose your new path",
-	opts : [
-		{title: 'Development', desc: 'Are you interested in creating applications?'},
-		{title: 'Intro to CS', desc: 'Are you new to CS?'},
-		{title: 'Sectors', desc: 'Are you interested in learning about the real-life applications of CS?'}
-	]
-};
-
-var developmentPage = {
-	title:"Development",
-	queryString: 'development',
-	opts: [
-		{title: 'Mobile', desc: 'Are you interested in developing mobile apps?', queryString: 'mobile'},
-		{title: 'Web Apps', desc: 'Are you interested in developing apps for the web?', queryString: 'web application'}
-	]
-};
-
-var introPage = {
-	title:"Intro to CS",
-	queryString: 'beginner cs',
-	opts: [
-		{title: 'Algorithms', desc: ''},
-		{title: 'Data Structures', desc: ''}
-	]
-}
-
-var sectorsPage = {
-	title:"Sectors",
-	queryString: "'computer science' careers finance automotive energy entertainment medical security",
-	opts: [
-	]
-}
-
-var blockColors= ['#3276b1','#d2850b','#47a447','#d2322d'];
+var blockColors= ['#d2850b','#47a447','#d2322d','#3276b1'];
 
 var pageView = startPage;
 
@@ -43,14 +9,19 @@ function changeTitle(newTitle) {
 };
 
 function updatePage(pageName) {
-	if(pageName === 'development') {
-		pageView = developmentPage;
-	} else if (pageName === 'intro') {
-		pageView = introPage;
-	} else if (pageName === 'sectors') {
-		pageView = sectorsPage;
+
+	var isFound = false;
+	for(var i = 0; !isFound && i < pageArray.length; i++) {
+		console.log(pageName);
+		console.log(pageArray[i].title);
+		if (pageArray[i].title == pageName){
+			pageView = pageArray[i];
+			isFound = true;
+			console.log(pageView);
+		}
 	}
-	queryString = pageView.queryString + " "+queryString;
+
+	queryString = pageView.queryString + "+"+queryString;
 	changeTitle(pageView.title);
 	//remove children of options-row
 	var optsRow= document.getElementById("options-row");
@@ -61,24 +32,21 @@ function updatePage(pageName) {
 	for(var i = 0; i < pageView.opts.length; i++) {
 		var blockContainer = document.createElement("div");
 		blockContainer.className = "col-sm-4 portfolio-item";
+		blockContainer.setAttribute('onclick',"updatePage('"+pageView.opts[i].title+"')");
 
 		var modalLink = document.createElement("a");
 		modalLink.className = "portfolio-link";
-		modalLink.setAttribute('href',"href='#developmentModal'");
+		//modalLink.setAttribute('href',"href='#developmentModal'");
+		//modalLink.setAttribute('href',pageView.href);
 		//TODO: change href to better modal
-		modalLink.setAttribute('onclick',"updatePage('development')");
+		//modalLink.setAttribute('onclick',"updatePage('"+pageView.opts[i].title+"')");
 
 		var jumboBlock = document.createElement("div");
 		jumboBlock.className = "jumbotron";
-
-		//TODO: set background color
-		with(jumboBlock.style){
-			color: "#FFFFFF";
-			backgroundColor: "#47a447";
-			textAlign: "center";
-			width: "400px";
-			height: "400px";
-		};
+		jumboBlock.style.backgroundColor = blockColors[i];
+		jumboBlock.style.color = "#FFFFFF";
+		jumboBlock.style.width = "400px";
+		jumboBlock.style.height = "400px";
 
 		var blockTitle = document.createElement("h3");
 		var titleText = document.createTextNode(pageView.opts[i].title);
