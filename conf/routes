@@ -16,3 +16,5 @@ GET /api/defaultTree				controllers.Api.defaultTree()
 GET /youtube						controllers.Application.youtube()
 
 GET /googleplus						controllers.Application.googleplus()
+
+GET /createpath						controllers.Application.createpath()
