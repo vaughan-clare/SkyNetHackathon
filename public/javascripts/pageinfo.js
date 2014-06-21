@@ -19,8 +19,8 @@ var introPage = {
 	title:"Intro to CS",
 	queryString: 'beginner cs',
 	opts: [
-		{title: 'Algorithms', desc: ''},
-		{title: 'Data Structures', desc: ''}
+		{title: 'Algorithms', desc: 'Are you interested in problem-solving?'},
+		{title: 'Data Structures', desc: 'Are you interested in how data is organized?'}
 	]
 }
 var sectorsPage = {
@@ -33,20 +33,20 @@ var mobileLanguagesPage = {
 	title:"Mobile",
 	queryString: "computer language",
 	opts: [
-		{title: 'PHP', desc:'', childPage: 'Level', queryString: "php"},
-		{title: 'Java', desc:'', childPage: 'Level', queryString: "java"},
-		{title: 'Go', desc:'', childPage: 'Level', queryString: "go"},
-		{title: 'Python', desc:'', childPage: 'Level', queryString: "python"}
+		{title: 'PHP', desc:'Are you new to app software development?', childPage: 'Level', queryString: "php"},
+		{title: 'Java', desc:'Do you want to use a language for more than app development?', childPage: 'Level', queryString: "java"},
+		{title: 'Go', desc:'Do you want to run an app with asynchronous processes?', childPage: 'Level', queryString: "go"},
+		{title: 'Python', desc:'Do you want to incorporate many types of systems in your app?', childPage: 'Level', queryString: "python"}
 	]
 }
 var webLanguagesPage = {
 	title:"Web Apps",
 	queryString: "computer language",
 	opts: [
-		{title: 'PHP', desc:'', childPage: 'Level', queryString: "php"},
-		{title: 'Java', desc:'', childPage: 'Level', queryString: "java"},
-		{title: 'Go', desc:'', childPage: 'Level', queryString: "go"},
-		{title: 'Python', desc:'', childPage: 'Level', queryString: "python"}
+		{title: 'PHP', desc:'Are you new to app software development?', childPage: 'Level', queryString: "php"},
+		{title: 'Java', desc:'Do you want to use a language for more than app development?', childPage: 'Level', queryString: "java"},
+		{title: 'Go', desc:'Do you want to run an app with asynchronous processes?', childPage: 'Level', queryString: "go"},
+		{title: 'Python', desc:'Do you want to incorporate many types of systems in your app?', childPage: 'Level', queryString: "python"}
 	]
 }
 
