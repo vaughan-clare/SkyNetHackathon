@@ -82,13 +82,14 @@ function searchplus(query) {
   var plusResults = response.result;
   var list = document.createElement("ul");
 	for(var i = 0; i < plusResults.items.length; i++) {
-		var ref = document.createElement("li");
+		var ref = document.createElement("h3");
 		var anchor = document.createElement('a');
+		anchor.innerText = plusResults.items[i].title;
 		anchor.setAttribute("href",response.result.items[i].url);
 		ref.appendChild(anchor);
-		document.getElementById('block-con').appendChild(ref);
 		list.appendChild(ref);
 	}
+	document.getElementById('block-con').appendChild(list);
 
 	//document.getElementById("path-container").appendChild('#block-con');
 	});
