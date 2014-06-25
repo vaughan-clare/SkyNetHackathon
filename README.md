@@ -1,16 +1,16 @@
 SkyNetHackathon
 ===============
-
+---------------------------------------------
 Google Scholar's Retreat 2014 code
-
-
 ----------------------------------------------
 TODO
+- Add Tree building functionality
 
--Javascript calls on 3rd party resources
+- Move API functionality to the BackEND
+	+ Cache queries for faster response in results page
 
--Authentication
+- Authentication
 
--Landing Page
+- Landing Page
 
--interactive UI
+- Configure DataStore
