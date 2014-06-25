@@ -22,3 +22,5 @@ GET        /createpath             controllers.Application.createpath()
 GET        /about                  controllers.Application.about()
 
 GET        /index                  controllers.Application.index()
+
+GET        /sprout-builder         controllers.Application.sproutBuilder()
