@@ -6,7 +6,7 @@ It is hard to answer to questions you do not yet know how to ask, especially in 
 ---------------------------------------------------------------
 
 TODO
-* Center About
+~~* Center About~~
 * Add Tree building functionality
     + Standardize tree building to be in a json format
     + Create a Preview of results before submitting
