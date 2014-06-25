@@ -154,6 +154,11 @@ function showResults(){
 	};
 	
 };
+//if target is hidden reveals else reveals
+function hide_reveal(target){
+    document.getElementsByClassName(target).hide();
+    console.log(target);
+};
 
 function updatePage(pageName) {
 	var isFound = false;

@@ -7,6 +7,8 @@ It is hard to answer questions you do not yet know how to ask especially in the 
 
 TODO
 * Add Tree building functionality
+    + Standardize tree building to be in a json format
+    + Create a Preview of results before submitting
 * Move API functionality to the BackEND
 	+ Cache queries for faster response in results page
 * Authentication
