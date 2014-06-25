@@ -41,11 +41,7 @@ function youtubeSearch(query) {
 		thumbnail.setAttribute("src",youtubeResults.items[i].snippet.thumbnails.default.url);
 		ref.appendChild(thumbnail);
 		document.getElementById('block-con').appendChild(ref);
-	}
-
-	//document.getElementById("path-container").appendChild('#block-con');
-
-	});
+	}});
 };
 
 //Build a Search String for third party sites such as coursera, udacity, mit, etc...
@@ -94,7 +90,6 @@ function searchplus(query) {
 	}
 	document.getElementById('block-con').appendChild(list);
 	});
-
 };
 
 
@@ -111,7 +106,6 @@ function showResults(){
 	document.getElementById('block-con').appendChild(googleResTitle);
 
 	//Google Results
-
 	var resource1 = document.createElement('h3');
 	$(resource1).attr('id', 'coursera');
 	var resource2 = document.createElement('h3');
@@ -133,9 +127,7 @@ function showResults(){
     		handleAPILoaded();
   		});
   	};
-
-  	loadAPIClientInterfaces();
-	
+  	loadAPIClientInterfaces();	
 	//YouTube
 	var youtubeResTitle = document.createElement("h2");
 	youtubeResTitle.innerText = "Related Videos";
@@ -157,8 +149,6 @@ function showResults(){
 	};
 
   	loadAPIClientInterfaces2();
-  	
-	// document.getElementById('block-con').appendChild(plusResults);
 	function handleAPILoaded1() {
 		searchplus(queryString);
 	};
