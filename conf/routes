@@ -3,18 +3,20 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
+GET        /                       controllers.Application.index()
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET        /assets/*file           controllers.Assets.at(path="/public", file)
 
 #API
-GET /api/list-all					controllers.Api.list(version ?= null) 
+GET        /api/list-all           controllers.Api.list(version ?= null)
 
-GET /api/defaultTree				controllers.Api.defaultTree()
+GET        /api/defaultTree        controllers.Api.defaultTree()
 
-GET /youtube						controllers.Application.youtube()
+GET        /youtube                controllers.Application.youtube()
 
-GET /googleplus						controllers.Application.googleplus()
+GET        /googleplus             controllers.Application.googleplus()
 
-GET /createpath						controllers.Application.createpath()
+GET        /createpath             controllers.Application.createpath()
+
+GET        /about                  controllers.Application.about()

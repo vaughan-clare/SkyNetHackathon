@@ -23,4 +23,6 @@ public class Application extends Controller {
     	return ok(createpath.render());
     }
 
+    public static Result about() {return ok(about.render());}
+
 }
