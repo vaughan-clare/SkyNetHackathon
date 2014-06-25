@@ -6,6 +6,7 @@ It is hard to answer questions you do not yet know how to ask, especially in the
 ---------------------------------------------------------------
 
 TODO
+* Fix Query String Builder currently not functioning correctly ie. "level+PHP+computer+language+development+ "
 * Add Tree building functionality
     + Standardize tree building to be in a json format
     + Create a Preview of results before submitting
