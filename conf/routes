@@ -20,3 +20,5 @@ GET        /googleplus             controllers.Application.googleplus()
 GET        /createpath             controllers.Application.createpath()
 
 GET        /about                  controllers.Application.about()
+
+GET        /index                  controllers.Application.index()
