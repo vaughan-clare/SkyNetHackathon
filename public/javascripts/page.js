@@ -30,13 +30,14 @@ function youtubeSearch(query) {
     maxResults: '10',
     order: 'date'
   	});
+    console.log(query);
   	request.execute(function(response) {
   	//console.log(response.result.items[1]);
 	var youtubeResults = response.result;
 	for(var i = 0; i < youtubeResults.items.length; i++) {
 		var ref = document.createElement("a");
 		ref.className = thumbnail;
-		ref.setAttribute("href","www.youtube.com/watch?v="+response.result.items[i].id.videoId);
+		ref.setAttribute("href", "https://www.youtube.com/watch?v="+response.result.items[i].id.videoId);
 		var thumbnail = document.createElement("img");
 		thumbnail.setAttribute("src",youtubeResults.items[i].snippet.thumbnails.default.url);
 		ref.appendChild(thumbnail);
