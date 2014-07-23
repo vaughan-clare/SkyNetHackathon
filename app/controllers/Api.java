@@ -30,9 +30,7 @@ public class Api extends Controller {
 	}
 
 	/* returns the default tree selections choices */
-    @BodyParser.Of(BodyParser.Json.class)
 	public static Result defaultTree(){
-
         JsonNode json = request().body().asJson();
         ObjectNode result = Json.newObject();
         String name = json.findPath("name").textValue();
